@@ -43,10 +43,7 @@ class Scheduler:
     @synchronized
     def add_url_seeds(self, arr_urls_seeds) -> None:
         for url_seed in arr_urls_seeds:
-            domain = Domain(url_seed, self.TIME_LIMIT_BETWEEN_REQUESTS)
-            if domain not in self.dic_url_per_domain:
-                self.dic_url_per_domain[domain] = []
-                self.count_fetched_page()
+            self.add_new_page(url_seed, 1)
 
     @synchronized
     def count_fetched_page(self) -> None:
@@ -89,6 +86,9 @@ class Scheduler:
                 self.dic_url_per_domain[domain] = [tuple([obj_url, depth])]
 
             self.set_discovered_urls.add(obj_url.geturl())
+            self.count_fetched_page()
+
+            print("[+] Adicionada página: " + obj_url.geturl())
 
             return True
 
