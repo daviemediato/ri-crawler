@@ -117,7 +117,7 @@ class Scheduler:
             if can_return:
                 return url, depth
 
-        sleep(self.TIME_LIMIT_BETWEEN_REQUESTS)
+        # sleep(self.TIME_LIMIT_BETWEEN_REQUESTS)
 
         return url, depth
 

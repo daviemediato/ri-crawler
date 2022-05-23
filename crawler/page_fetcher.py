@@ -18,7 +18,8 @@ class PageFetcher(Thread):
         :return: Conteúdo em binário da URL passada como parâmetro, ou None se o conteúdo não for HTML
         """
         headers = {
-            'User-Agent': 'RobotCEFET-MG/1.0',
+            'User-Agent':
+            'CEFET-MG-RI-BOT/1.0 (https://uttermost-card-8b9.notion.site/About-CEFET-MG-RI-BOT-1-0-49c8e0792ba74010b3207c662944d793)',
         }
 
         response = requests.get(obj_url.geturl(), headers=headers)
